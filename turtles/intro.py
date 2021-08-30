@@ -30,7 +30,7 @@ john.shape("turtle")
 for i in (0, 1, 2):
   john.stamp()
   john.color("green")
-  john.forward(50)
+  john.forward(60)
   john.left(120)
 
 
