@@ -8,7 +8,7 @@
 import turtle
 
 def line(t,x,y,color,len):
-  for i in range(4):
+  # for i in range(4):
     t.goto(x,y)
     t.color(color)
     t.forward(len)
