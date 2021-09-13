@@ -9,3 +9,9 @@
 # copies repo from Github to local machine
 #
 print("I made a change")
+
+# Remove files:
+# git checkout file_name.py
+
+# Commit Files:
+# git commit file_name.py -m "add a comment here"
