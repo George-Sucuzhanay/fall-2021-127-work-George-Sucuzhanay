@@ -12,11 +12,5 @@
 # function is_rightangled  (parameters x,y,z):
 
 
-
 def is_rightangled(a, b, c):
-  if max(a,b,c) == a:
-    return abs((a**2)-(b**2+c**2)) < 0.001
-  elif max(a,b,c) == b:
-    return abs((b**2)-(a**2+c**2)) < 0.001
-  else:
-    return abs((c**2)-(a**2+b**2)) < 0.001
+    return abs((a ** 2 + b ** 2) - (c ** 2)) < 0.001

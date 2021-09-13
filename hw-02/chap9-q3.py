@@ -4,8 +4,14 @@
 
 # Your text contains 243 alphabetic characters, of which 109 (44.8%) are 'e'.
 
-def numOfCharacter(p):
 
 
-
-print("Your text contains" + numOfCharacter + "alphabetic characters, of which" + numOfe + "(" + percentOfe + ") are 'e'.)
+for char in lowercase_text:    
+    # Check if we have an alphanumeric string and continue the loop if not
+    if not char.isalpha():
+        continue
+    # Increment the total character counter
+    char_counter += 1
+    # Additionaly, increment the 'e' counter if we have an 'e'
+    if char == 'e':
+        e_counter += 1
