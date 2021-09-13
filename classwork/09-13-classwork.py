@@ -38,3 +38,5 @@ print("I made a change")
 # git push -> send updates to github
 # git pull -> get updates from github
 # git commit -> send local changes to local git
+# mkdir -> makes a new folder
+# git add -> to add a file to git control
