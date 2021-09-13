@@ -40,3 +40,8 @@ print("I made a change")
 # git commit -> send local changes to local git
 # mkdir -> makes a new folder
 # git add -> to add a file to git control
+# git rm file_name.py -> remove a file
+# git mu oldname newname -> this renames and moves a file
+# git commit -a -m "message" -> commits all edited files at once
+
+
