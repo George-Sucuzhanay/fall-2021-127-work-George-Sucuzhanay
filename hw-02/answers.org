@@ -1,0 +1,13 @@
+Chapter 7:
+
+Q2:
+
+Give the logical opposites of these conditions. You are not allowed to use the not operator.
+
+1) a > b   opposite  a >= b
+
+2) a >= b   opposite  a < b
+
+3) a >= 18  and  day == 3  opposite  a < 18 or day != 3
+
+4) a >= 18  or  day != 3 opposite a < 18 and day =+ 3
