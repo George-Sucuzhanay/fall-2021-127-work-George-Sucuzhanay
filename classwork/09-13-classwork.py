@@ -14,4 +14,27 @@ print("I made a change")
 # git checkout file_name.py
 
 # Commit Files:
-# git commit file_name.py -m "add a comment here"
+# git commit file_name.py -m "add a comment here
+
+
+# Workflow:
+# only once:
+    # git clone ssh repo link
+
+# everytime you sit down
+# to work:
+    # 1) cd repofolder     (thonny)
+    # 2) git pull       (thonny)
+    
+# Normal Workflow:
+    # 1) edit files (thonny)
+    # 2) run/test (thonny)
+    # 3) git commit file_name.py -m "message"              (terminal)
+    # 4) git push                (terminal)
+
+
+# Review:
+# git clone -> first time copy
+# git push -> send updates to github
+# git pull -> get updates from github
+# git commit -> send local changes to local git
