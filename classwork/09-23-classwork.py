@@ -25,8 +25,9 @@ def piglatinify(word):
     # debugging is 10 times harder than write your code
     # if working on a program : what is the minimal amount of people that work on a programming project
     # you and you two weeks from now   wowowowowowowowo!!!!!!
+    # mohamand and henry
     
-
+    
 def test():
     s = "hello"
     print(s,piglatinify(s));
