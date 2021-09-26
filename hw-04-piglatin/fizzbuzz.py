@@ -5,6 +5,8 @@
 # otherwise just print the number
 
 import random
+
+# using if and elif statements
 def fizzbuzz():
     num1 = random.randint(1,101)
     if (num1 % 3 == 0 and num1 % 5 == 0):
@@ -12,8 +14,24 @@ def fizzbuzz():
 
     elif (num1 % 3 == 0):
         return "fizz"
+
+    elif (num1 % 5 == 0):
+        return "buzz"
     else:
         return num1
 
 print(fizzbuzz())
+
+# Using while loops
+count = random.randint(1,101)
+while (count < 101):
+    if (count % 5) == 0 and (count % 3) == 0:
+        print ("FizzBuzz")
+    elif (count % 3) == 0:
+        print ("Fizz")
+    elif (count % 5) == 0:
+        print ("Buzz")
+    else:
+        print (count)
+    break
 
