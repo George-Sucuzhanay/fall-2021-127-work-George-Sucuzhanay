@@ -8,7 +8,7 @@ import random
 
 # using if and elif statements
 def fizzbuzz():
-    num1 = random.randint(1,101)
+    num1 = random.randint(1,100)
     if (num1 % 3 == 0 and num1 % 5 == 0):
         return "fizzbuzz"
 
