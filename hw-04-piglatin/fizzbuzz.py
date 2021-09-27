@@ -20,18 +20,11 @@ def fizzbuzz():
     else:
         return num1
 
-print(fizzbuzz())
+def tests():
+    # add tests here
+    print(fizzbuzz())
 
-# Using while loops
-count = random.randint(1,101)
-while (count < 101):
-    if (count % 5) == 0 and (count % 3) == 0:
-        print ("FizzBuzz")
-    elif (count % 3) == 0:
-        print ("Fizz")
-    elif (count % 5) == 0:
-        print ("Buzz")
-    else:
-        print (count)
-    break
+if __name__== "__main__":
+    tests()
+
 
