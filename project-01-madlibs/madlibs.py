@@ -22,7 +22,7 @@ def randomVerb():
 # print(randomVerb())
 
 def randomNoun():
-    nouns=['dog','hammer','cat','car','frog', 'horse', "John", 'dragon', 'home']
+    nouns = ['dog','hammer','cat','car','frog', 'horse', "John", 'dragon', 'home']
     i = randrange(len(nouns))
     item = nouns[i]
     return nouns[i]
