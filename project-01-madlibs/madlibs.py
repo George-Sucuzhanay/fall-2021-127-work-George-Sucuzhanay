@@ -12,36 +12,35 @@
 # <-------------------------------------------------------------------------------------->
 
 from random import randrange
+
 def randomVerb():
-    verbs = ['ate','walked','slept']
+    verbs = ['ate','walked','slept','behave', 'belong', 'hold']
     i = randrange(len(verbs))
     item = verbs[i]
     return verbs[i]
 
-print(randomVerb())
+# print(randomVerb())
 
 def randomNoun():
-    nouns=['dog','hammer','cat','car','frog']
+    nouns=['dog','hammer','cat','car','frog', 'horse', "John", 'dragon', 'home']
     i = randrange(len(nouns))
     item = nouns[i]
     return nouns[i]
     
-print(randomNoun())
+# print(randomNoun())
 
 def madlib(randomNoun, randomVerb):
-    pass
+    myStoryLine1 = "One day, Gerald and Piggie decided to go on a " + randomNoun + ". Gerald and Piggie began to " + randomVerb + ". Gerald asks if they need to pack " + randomNoun + "."
+    myStoryLine2 = "Piggie tells Gerald that when she returns to make sure to get"
+    return myStoryLine1 + myStoryLine2
+
+print(madlib(randomNoun(), randomVerb()))
+
 
 # from random import randrange
 
 # movie_list = ['The Godfather', 'The Wizard of Oz', 'Citizen Kane', 'The Shawshank Redemption', 'Pulp Fiction']
 
-# # get random index number
-# i = randrange(len(movie_list))
-# item = movie_list[i]
-# # Select item using index number
-# print("Randomly selected item", movie_list[i], "is present at index:", i)
-
-# # Output Randomly selected item Citizen Kane is present at index: 2
 
 # When run, it should print out at least two original sentences each followed by two different madlab outputs for each.
 # These sentences can be declared as multiline (triple quote) strings in your program.
