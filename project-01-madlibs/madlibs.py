@@ -2,62 +2,75 @@
 George Sucuzhanay
 Madlibs Project
 """
-# Possibles Ideas:
-# - creating a huge string and then concatenate
-# -  must use for loops
-# - possible look how to capitalize the first word of a sentence
-
-# <-------------------------------------------------------------------------------------->
-# MAKE SURE TO MAKE MORE THAN ONE COMMITS SHOWING YOU PROGRESSIVELY WORKED ON THE PROJECT
-# POINTS DEDUCTED!
-# <-------------------------------------------------------------------------------------->
 
 from random import randrange
 
 def randomVerb():
-    verbs = ['ate','walked','slept','behave', 'belong', 'hold']
+    verbs = ['eat','walk','sleep','fight', 'scream', 'jump', 'sing', 'laugh']
     i = randrange(0,len(verbs))
     item = verbs[i]
     return item
 
-# print(randomVerb())
-
 def randomNoun():
-    nouns = ['dog','hammer','cat','car','frog', 'horse', "John", 'dragon', 'home']
+    nouns = ['dog','hammer','cat','car','frog', 'horse', "rabbit", 'dragon', 'home', 'park', 'zoo', 'computer']
     i = randrange(0,len(nouns))
     item = nouns[i]
     return item
  
-# print(randomNoun())
-
-def madlib(randomNoun, randomVerb):
-    myStoryLine1 = "One day, Gerald and Piggie decided to go on a " + randomNoun + ". Gerald and Piggie began to " + randomVerb + ". Gerald asks if they need to pack " + randomNoun + "."
-    myStoryLine2 = "Piggie tells Gerald that when she returns to make sure to get"
-    return myStoryLine1 + myStoryLine2
-
-# print(madlib(randomNoun(), randomVerb()))
-
-# When run, it should print out at least two original sentences each followed by two different madlab outputs for each.
-# These sentences can be declared as multiline (triple quote) strings in your program.
-
-# Practice Function:
-def working(myStoryLineEx):
+def firstsentence():
     testing = myStoryLineEx.split()
-    # print(testing)
     newList = []
     for items in testing:
-        if (items == '<noun>' or items == '<noun>,' or items == '<noun>.'):
-            print("this conditional is true and its a noun")
-            i = randomNoun()
-            newList.append(i)
-            # print(items)
-        elif(items == '<verb>' or items == '<verb>,' or items == '<verbs>.'):
-            print("this conditonal is working and its a verb")
-            i = randomVerb()
-            newList.append(i)
+        if (items == '<noun>'):
+            items = randomNoun()
+            newList.append(items)
+        elif (items == '<noun>,'):
+            items = randomNoun()
+            newList.append(items + ",")
+        elif(items == '<noun>.'):
+            items = randomNoun()
+            newList.append(items + ".")
+        elif(items == '<verb>'):
+            items = randomVerb()
+            newList.append(items)
+        elif(items == '<verb>,'):
+            items = randomVerb()
+            newList.append(items + ",")
+        elif(items == '<verb>.'):
+            items = randomVerb()
+            newList.append(items + ".")
         else:
             newList.append(items)
-    return newList
+    return ' '.join(newList)
 
-myStoryLineEx = "One day, Gerald and Piggie decided to go on a <noun>. Gerald and Piggie began to <verb>. Gerald asks if they need to pack <noun>."
-print(working(myStoryLineEx))
+def secondsentence():
+    testing2 = myStoryLineEx2.split()
+    newList2 = []
+    for words in testing2:
+        if (words == '<noun>'):
+            words = randomNoun()
+            newList2.append(words)
+        elif (words == '<noun>,'):
+            words = randomNoun()
+            newList2.append(words + ",")
+        elif (words == '<noun>.'):
+            words = randomNoun()
+            newList2.append(words + ".")
+        elif(words == '<verb>'):
+            words = randomVerb()
+            newList2.append(words)
+        elif (words == '<verb>,'):
+            words = randomVerb()
+            newList2.append(words + ",")
+        elif (words == '<verb>.'):
+            words = randomVerb()
+            newList2.append(words + ".")
+        else:
+            newList2.append(words)
+    return ' '.join(newList2)
+
+myStoryLineEx = "One day, Gerald and Piggie decided to go on a <noun>. Gerald and Piggie began to <verb>. Gerald asks if they need to pack a <noun>. to go to the <noun>. It was sad to hear that Gerald is wanting to <verb> Piggie." 
+myStoryLineEx2 = "Piggie tells Gerald that she has to bring her <noun> since Piggie is wanting to <verb> him. Gerald notices that Piggie forgot her <noun>, and he <verb>. The next day Piggie and Gerald went to the <noun> and saw a <noun> on a chair. Both Piggie and Gerald made sure to bring a <noun>."
+
+print(firstsentence())
+print(secondsentence())
