@@ -20,5 +20,4 @@ def modefast2(L):
         L1.append(L[i])
         i += 1
     return L1[-1]
-
 print(modefast2(L))
