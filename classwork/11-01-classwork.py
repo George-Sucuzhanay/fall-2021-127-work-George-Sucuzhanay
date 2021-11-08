@@ -23,7 +23,7 @@ letter_counts = {}
 # here we're counting how many times each number appears
 # in data but the first time we see a number it will give an error
 # if we try to access it.
-#to fixm we can use an if statement.
+# to fix it we can use an if statement.
 # if the number's already in the dict, add one to the current count
 # otherwise set the initial count to 1
 
