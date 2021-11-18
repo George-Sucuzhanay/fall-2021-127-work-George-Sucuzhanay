@@ -24,10 +24,11 @@ def build_substitution_dictionary(filename):
         d[part].append(word)
     return d   
 
-# work on substuitiing the pirate.dat with 
+# work on substuitiing the pirate.dat with input.txt
 def madlibify(story,substitutions):
     result_list = []
-    print(substitutions["hi"])
+    a = substitutions["hi"] == "hi"
+    print(a)
 
     for word in story.split():
         lastchar = word[-1]
@@ -38,9 +39,10 @@ def madlibify(story,substitutions):
             suffix=''
         for key in substitutions.keys():
             if word == key:
-                print("yeah")
+                print("they match!")
                 # finalizing accessing subsitutions keys
-                newword = substitutions.get(key)
+                # by the looking of things substitutions["hi"] == "hi" are NOT the SAME!!
+                newword = substitutions[key]
         else:
             newword = word
         newword = newword + suffix
@@ -48,11 +50,7 @@ def madlibify(story,substitutions):
         result_list.append(newword)
     return " ".join(result_list)
 
-
-
-
 def main():
-    # text = open("project-02-speak/input.txt").read()
     story = open("project-02-speak/input.txt").read()
     substitution = build_substitution_dictionary("project-02-speak/pirate.dat")
     print(substitution)
