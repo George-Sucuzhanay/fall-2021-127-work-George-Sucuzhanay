@@ -42,6 +42,7 @@ def main():
     story = open("classwork/story.text").read()
     substitutions = build_substitution_dictionary("classwork/substitutions.dat")
     print(substitutions)
+    print('<--------------------------------->')
     result = madlibify(story,substitutions)
     print(result)
 

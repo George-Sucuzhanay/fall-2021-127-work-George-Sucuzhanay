@@ -25,11 +25,39 @@ def build_substitution_dictionary(filename):
     return d   
 
 # work on substuitiing the pirate.dat with 
+def madlibify(story,substitutions):
+    result_list = []
+    print(substitutions["hi"])
+
+    for word in story.split():
+        lastchar = word[-1]
+        if lastchar in ".!?,":
+            word = word.rstrip(lastchar)
+            suffix=lastchar
+        else:
+            suffix=''
+        for key in substitutions.keys():
+            if word == key:
+                print("yeah")
+                # finalizing accessing subsitutions keys
+                newword = substitutions.get(key)
+        else:
+            newword = word
+        newword = newword + suffix
+
+        result_list.append(newword)
+    return " ".join(result_list)
+
+
+
+
 def main():
     # text = open("project-02-speak/input.txt").read()
+    story = open("project-02-speak/input.txt").read()
     substitution = build_substitution_dictionary("project-02-speak/pirate.dat")
     print(substitution)
-    # result = madlibify(text,substitution)
-    # print(result)
+    result = madlibify(story,substitution)
+    print(result)
+
 if __name__=="__main__":
     main()
