@@ -4,7 +4,7 @@ bag = {}
 def load_bow(filename):
     f = open(filename).read()
     for word in f.split():
-        word = word.rstrip(".;?,\n")
+        word = word.rstrip('''.'-;?,\n''')
         word = word.lower()
         bag.setdefault(word,0)
         bag[word] = bag[word] + 1
@@ -58,7 +58,7 @@ def alter(bag,stopwordfilename):
     return newbag
 
 def sentiment(bag,wordlistfile):
-    # first, read in wordlistfile ino a list
+    # first, read in wordlistfile in a list
 
     # Version 1: calculate the total number of words in bag
     # Version 2: calculate the # of different words in bag

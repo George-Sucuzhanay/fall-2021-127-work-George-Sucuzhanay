@@ -1,2 +1,0 @@
-# Thursday Nov 11
-# 
