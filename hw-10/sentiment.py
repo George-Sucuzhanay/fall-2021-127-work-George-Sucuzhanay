@@ -28,8 +28,8 @@ def find_most_frequent(bag):
     max = counts[-1]
 
     # find the words that occur that number of times
-    #result = []
-    #for word in bag.keys():
+    # result = []
+    # for word in bag.keys():
     #    if bag[word] == max:
     #        result.append(word)
     result = [x for x in bag.keys() if bag[x] == max]
@@ -63,20 +63,25 @@ def remove_stop_words(bag,stopwordfilename):
 
 def sentiment(bag,wordlistfile):
     # first, read in wordlistfile into a list
-    bag = load_bow(wordlistfile)
+    wordList = load_bow(wordlistfile)
+
     # Version 1: calculate the total number of words in bag
+    wordTotal = len(bag)
 
-    
-    # Version 1: Calculate the number of words in bag that
-    #            are in wordlistfile 
-
+    # Version 1: Calculate the number of words in bag that are in wordlistfile 
+    duplicates = 0
+    for word in bag.keys():
+        if word in wordList.keys():
+            duplicates = duplicates + 1
 
     # Version 1: return the number from wordlistfile / total words
-    return 0
+    result = str(duplicates) + ' out of ' + str(wordTotal) + " total words"
+
+    return result
 
 def sentiment_two(bag,wordlistfile):
     # first, read in wordlistfile into a list
-
+    wordList = load_bow(wordlistfile)
     # Version 2: calculate the # of different words in bag 
 
 
@@ -85,14 +90,19 @@ def sentiment_two(bag,wordlistfile):
 
     # Version 2: return the same ration but with the V2 numbers
 
-    pass
     return 0
 def main():
-    print(load_bow("hw-10/chapter1.txt"))
     print(sentiment(load_bow('hw-10/one.dat'),'hw-10/positive.txt'))
     print(sentiment(load_bow('hw-10/one.dat'),'hw-10/negative.txt'))
-    print(sentiment_two(load_bow('hw-10/two.dat'),'hw-10/positive.txt'))
-    print(sentiment_two(load_bow('hw-10/two.dat'),'hw-10/negative.txt'))
+    
+    print(sentiment(load_bow('hw-10/two.dat'),'hw-10/positive.txt'))
+    print(sentiment(load_bow('hw-10/two.dat'),'hw-10/negative.txt'))
+
+    # print(sentiment_two(load_bow('hw-10/one.dat'),'hw-10/positive.txt'))
+    # print(sentiment_two(load_bow('hw-10/one.dat'),'hw-10/negative.txt'))
+
+    # print(sentiment_two(load_bow('hw-10/two.dat'),'hw-10/positive.txt'))
+    # print(sentiment_two(load_bow('hw-10/two.dat'),'hw-10/negative.txt'))
 
 
 
