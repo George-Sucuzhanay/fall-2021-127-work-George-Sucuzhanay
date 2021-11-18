@@ -69,13 +69,13 @@ def sentiment(bag,wordlistfile):
     wordTotal = len(bag)
 
     # Version 1: Calculate the number of words in bag that are in wordlistfile 
-    duplicates = 0
+    matchCount = 0
     for word in bag.keys():
         if word in wordList.keys():
-            duplicates = duplicates + 1
+            matchCount = matchCount + 1
 
     # Version 1: return the number from wordlistfile / total words
-    result = str(duplicates) + ' out of ' + str(wordTotal) + " total words"
+    result = str(matchCount) + ' out of ' + str(wordTotal) + " total words"
 
     return result
 
