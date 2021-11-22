@@ -17,48 +17,57 @@
 
 def build_substitution_dictionary(filename):
     d = {}
-    f = open(filename)
-    for line in f.readlines():
-        line = line.strip('\n')
-        (part,word) = line.split(':')
-        d.setdefault(part,[])
-        d[part].append(word)
-    return d   
+    f = open(filename).readlines()
+    # line = line.strip('\n')
+    # (part,word) = line.split(':')
+    # d.setdefault(part,[])
+    # d[part].append(word)
+    # checkin with Henry on split dict on \n
+    for line in f:
+        key, value = line.strip().split(":")
+        d[key] = value
+    print(d)
+    return d 
 # work on substuitiing the pirate.dat with input.txt
 def madlibify(story,substitutions):
     result_list = []
-    # a = substitutions["hi"] == "hi" # false!
-  
+    a = substitutions["hi"] == "ahoy" # false!
+    print(a)
     # print(substitutions["hi"])
     # print(type(substitutions["hi"][0]))
 
     for word in story.split():
-        lastchar = word[-1]
-        if lastchar in ".!?,":
-            word = word.rstrip(lastchar)
-            suffix=lastchar
-        else:
-            suffix=''
         for key in substitutions.keys():
+            lastchar = word[-1]
+            if lastchar in ".!?,\n":
+                word = word.rstrip(lastchar)
+                suffix=lastchar
+            else:
+                suffix=''
             if word == key:
-                print(key, "  => this key matches if a word in the textfile")
+                # print(key, "  => this key matches if a word in the textfile")
                 # finalizing accessing subsitutions keys
                 # by the looking of things substitutions["hi"] == "hi" are NOT the SAME!!
-                newword = substitutions[word][0]
+                newword = substitutions[word]
+                # print(newword, " => this is working now!!!!! :) ")
                 # trouble accessing the list inside of the dict values
             else:
                 newword = word
-                print(newword)
-        newword = newword + suffix
+                # print(newword)
+
+                # print(newword)
+            newword = newword + suffix
+        # print(newword)
 
         result_list.append(newword)
-        print(result_list)
+    print(result_list)
+        
     return " ".join(result_list)
 
 def main():
     story = open("project-02-speak/input.txt").read()
     substitution = build_substitution_dictionary("project-02-speak/pirate.dat")
-    print(substitution)
+    # print(substitution)
     result = madlibify(story,substitution)
     print(result)
 
