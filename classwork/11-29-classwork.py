@@ -1,4 +1,5 @@
 import csv
+
 def clean(line):
     """
     takes in a string and returns a cleaned string.
@@ -16,7 +17,7 @@ def clean(line):
     return cleaned
 
 def remove_stop_words(line):
-    f = open("stopwords.txt")
+    f = open("classwork/stopwords.txt")
     stopwords = f.read().split()
     result = [x for x in line.split() if x not in stopwords]
     line = " ".join(result)
@@ -40,3 +41,46 @@ for item in reader:
     # we might not want to remove the stop words
     statement = remove_stop_words(statement)
     index = add_statement(index,key,statement)
+
+# 1: ABCD
+# 2: BCFG
+# 3: BRS
+# 4: XYZA
+# A or C is a union search
+# | 1, 4 |   | 2|
+# A and C is a intersection search
+
+# | 4 |  |1|  |2|
+
+def s_or(index,words):
+    """
+    return a list of all keys in the index that contian any of the words
+    """
+    result = []
+    for word in words:
+        result = result + index[word]
+    return list(set(result))
+
+def s_and(index,words):
+    """
+    return a list of they keys such that they key has ALL
+    the words in it
+    """
+    result = index[words[0]]
+    for word in words[1:]:
+        result = list(set(result) & set(index[word]))
+    return result
+
+# for key in index.keys():
+#     if len(index[key]) > 50:
+#         print(key,len(index[key]))
+
+print('father', len(index['father']), index['father'])
+print('mother', len(index['mother']), index['mother'])
+print()
+result = s_or(index, ['mother','father'])
+print('both',len(result),result)
+print()
+print()
+result = s_and(index,['mother','father'])
+print(result)
