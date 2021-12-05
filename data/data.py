@@ -34,61 +34,100 @@ def add_statement(index,key,statement):
         if key not in index[word]:
             index[word].append(key)
     return index
+ 
 f = open("data/underbanked.csv", encoding='Latin-1')
+f2 = open("data/underbanked.csv", encoding='Latin-1')
+
 
 # Create a dictionary where
     # 1) Keys are the boroughs of NYC
     # 2) Values are the percentage of unbanked in such borought
 reader = csv.reader(f)
+
 people = {}
 index = {}
-mydict = dict((rows[0],rows[4]) for rows in reader)
-print(mydict)
 
-for item in reader:
-    print(item['Sub Boro Name'])
-    key = item['Sub Boro Name']
-    # people[key] = item
+
+mydict = dict((rows[0],rows[4]) for rows in reader)
+# print(mydict)
+
+
+def largestUnbankedPercent():
+    keyList = []
+    for i in sorted (mydict.values()):
+        # print(i)
+        keyList.append(str(i))
+    largest = keyList[-2]
+    return largest
+
+def get_key(val): 
+    for key, value in mydict.items(): 
+         if val == value: 
+             return key 
+  
+    return "key doesn't exist"
+
+# This here lets us know the borough in NYC that has the largestUnbankedPopulation
+print(get_key(largestUnbankedPercent()), "is the borough with the largest population of unbanked people")
+
+reader2 = csv.reader(f2)
+
+dictForeignBorn = dict((rows2[0],rows2[9]) for rows2 in reader2)
+# print(dictForeignBorn)
+
+def largestForiegnBornPercent():
+    keyList = []
+    for i in sorted (dictForeignBorn.values()):
+        # print(i)
+        keyList.append(str(i))
+    largest = keyList[-2]
+    return largest
+
+def get_key_foreign(val): 
+    for key, value in dictForeignBorn.items(): 
+         if val == value: 
+             return key 
+    return "key doesn't exist"
+
+print(get_key_foreign(largestForiegnBornPercent()), "has the highest population of foriegn born people.")
+
+def corrolationForiegnUnbanked():
+    if get_key(largestUnbankedPercent()) == get_key_foreign(largestForiegnBornPercent()):
+        return "The borough with the largest unbanked population match the borough with largest foriegn born population"
+    else:
+        return "The borough with the largest unbanked population does not match the borough with largest foriegn born population"
+print(corrolationForiegnUnbanked())
+# for item in reader:
+#     # print(item['Sub Boro Name'])
+#     key = item['Sub Boro Name']
+#     # people[key] = item
     # statement = clean(item['Underbanked 2011'])
     # # we might not want to remove the stop words
     # statement = remove_stop_words(statement)
     # index = add_statement(index,key,statement)
 
-# 1: ABCD
-# 2: BCFG
-# 3: BRS
-# 4: XYZA
-# A or C is a union search
-# | 1, 4 |   | 2|
-# A and C is a intersection search
+# def s_or(index,words):
+#     """
+#     return a list of all keys in the index that contian any of the words
+#     """
+#     result = []
+#     for word in words:
+#         result = result + index[word]
+#     return list(set(result))
 
-# | 4 |  |1|  |2|
-
-def s_or(index,words):
-    """
-    return a list of all keys in the index that contian any of the words
-    """
-    result = []
-    for word in words:
-        result = result + index[word]
-    return list(set(result))
-
-def s_and(index,words):
-    """
-    return a list of they keys such that they key has ALL
-    the words in it
-    """
-    result = index[words[0]]
-    for word in words[1:]:
-        result = list(set(result) & set(index[word]))
-    return result
+# def s_and(index,words):
+#     """
+#     return a list of they keys such that they key has ALL
+#     the words in it
+#     """
+#     result = index[words[0]]
+#     for word in words[1:]:
+#         result = list(set(result) & set(index[word]))
+#     return result
 
 # for key in index.keys():
 #     if len(index[key]) > 50:
 #         print(key,len(index[key]))
-
-
-
 
 
 
