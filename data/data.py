@@ -39,9 +39,12 @@ f = open("data/underbanked.csv", encoding='Latin-1')
 # Create a dictionary where
     # 1) Keys are the boroughs of NYC
     # 2) Values are the percentage of unbanked in such borought
-reader = csv.DictReader(f)
+reader = csv.reader(f)
 people = {}
 index = {}
+mydict = dict((rows[0],rows[4]) for rows in reader)
+print(mydict)
+
 for item in reader:
     print(item['Sub Boro Name'])
     key = item['Sub Boro Name']
